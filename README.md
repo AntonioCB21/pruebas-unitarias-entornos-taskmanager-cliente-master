@@ -23,8 +23,8 @@ class ActividadService(
 
 ### `crearTarea(descripcion: String, etiquetas: List<String> = emptyList())`
 - **Parámetros**:
-  - `descripcion`: Descripción de la tarea (no vacía)
-  - `etiquetas`: Lista de etiquetas (opcional)
+  - `descripcion`: Descripción de la tarea
+  - `etiquetas`: Lista de etiquetas
 - **Efecto**:
   - Crea nueva tarea en repositorio
 - **Validaciones**:
@@ -330,7 +330,7 @@ class ActividadServiceTest : DescribeSpec({
   - Cambios de estado válidos
   - Filtrados y consultas con datos existentes
 
-### ✅ Casos de error/borde (4 tests)**:
+### ✅ Casos de error/borde (4 tests):
   - Validación de datos inválidos (lanzan `IllegalArgumentException`)
   - Operaciones con IDs inexistentes (lanzan excepciones o retornan `null/false`)
   - Intento de cierre con subtareas pendientes (`IllegalStateException`)
@@ -338,8 +338,3 @@ class ActividadServiceTest : DescribeSpec({
 ### ✅ Verificación de Mocks
 - Todas las interacciones con repositorios mockeados se verificaron correctamente
 - 100% de cobertura para los métodos críticos probados
-
-## Análisis de Rendimiento
-- **Tiempo promedio por test**: 0.035 s
-- **Tests más rápidos**: Consultas simples (filtrarPorEstado, listar)
-- **Tests más lentos**: Creación de entidades complejas (tareas con subtareas)
