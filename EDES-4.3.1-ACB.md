@@ -25,17 +25,41 @@ Añade esto en tu archivo de construcción (asegúrate de que la versión sea co
 
 ## 3. Errores
 * Indentación Incorrecta  
-/path/to/file.kt:15:1: [indent] Unexpected indentation (expected 4, actual 2)
+``/path/to/file.kt:15:1: [indent] Unexpected indentation (expected 4, actual 2)``
 
-* Imports No Ordenados
+* Imports No Ordenados  
+``/path/to/file.kt:3:1: [import-ordering] Imports must be ordered alphabetically``
 
-* Llaves Inconsistentes
+* Llaves Inconsistentes  
+``/path/to/file.kt:8:1: [curly-spacing] Missing spacing before "{"``
 
-* Wildcards Imports
+* Wildcards Imports  
+``/path/to/file.kt:2:1: [no-wildcard-imports] Wildcard import (com.example.*)``
 
-* Final Newline Missing
+* Final Newline Missing  
+``/path/to/file.kt:20:1: [final-newline] File must end with a newline``
 
 ## 4. Documentación de errores
+* Indentación Incorrecta  
+Descripción:
+Ktlint exige 4 espacios por nivel de indentación (estándar oficial de Kotlin).
+
+* Imports No Ordenados  
+Descripción:
+Prohíbe imports genéricos (.*) para mantener explícito el origen de las clases.
+
+* Llaves Inconsistentes  
+Descripción:
+Debe haber un espacio después de ) y antes de {.
+
+* Wildcards Imports  
+Descripción:
+Todos los archivos deben terminar con una línea vacía.
+
+* Final Newline Missing  
+Descripción:
+Los imports deben ordenarse alfabéticamente y agruparse (stdlib primero).
+
 
 ## 5. Opción de configuración
 
