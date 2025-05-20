@@ -137,6 +137,43 @@ class Test {
 ```
 
 ## 5. Opción de configuración
+🔧 1. Habilitar trailing-comma
+- Objetivo: Permitir comas al final en listas/arrays para commits más limpios.
+
+Cambio en build.gradle.kts:
+```
+ktlint {
+    enableExperimentalRules.set(true)  // Necesario para reglas no estables
+    editorspecConfig.set(
+        mapOf(
+            "insert_final_newline" to true,
+            "ij_kotlin_allow_trailing_comma" to true,  // 👈 Nueva regla
+            "ij_kotlin_allow_trailing_comma_on_call_site" to true
+        )
+    )
+}
+```
+
+Ejemplo de Código:
+```
+// ❌ ANTES (sin coma final)
+val colors = listOf(
+    "rojo",
+    "verde",
+    "azul"  // Error si añades otro elemento y olvidas la coma
+)
+
+// ✅ DESPUÉS (con coma final)
+val colors = listOf(
+    "rojo",
+    "verde",
+    "azul",  // Válido y facilita añadir nuevos items
+)
+```
+
+Impacto en el Informe:
+- Los informes ya no marcarán comas finales como errores.
+- Si la coma falta en una lista multilínea, KTLint la añadirá automáticamente con ktlintFormat.
 
 ## 6. Preguntas
 ### Respuestas - Uso de Ktlint en el Proyecto
