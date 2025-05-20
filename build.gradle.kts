@@ -1,5 +1,12 @@
 plugins {
-    kotlin("jvm") version "2.0.20"
+    kotlin("jvm") version "1.9.20"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
+}
+
+configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
+    verbose.set(true)
+    outputToConsole.set(true)
+    enableExperimentalRules.set(true)
 }
 
 group = "es.prog2425.taskmanager"
