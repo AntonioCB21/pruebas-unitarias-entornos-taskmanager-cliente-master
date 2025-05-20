@@ -24,7 +24,8 @@ Añade esto en tu archivo de construcción (asegúrate de que la versión sea co
 ![image](https://github.com/user-attachments/assets/86b04493-43fb-441f-8623-854487ef65d2)
 
 ## 3. Errores
-* Indentación Incorrecta
+* Indentación Incorrecta  
+/path/to/file.kt:15:1: [indent] Unexpected indentation (expected 4, actual 2)
 
 * Imports No Ordenados
 
