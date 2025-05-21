@@ -253,14 +253,14 @@ private fun captureSystemOut(block: () -> Unit): String {
 
 # Preguntas
 
-### 1.a Code Smells y Patrones
+### 1.a
 | Code Smell            | Patrón Aplicado          | Archivo              
 |-----------------------|--------------------------|----------------------
 | Long Method           | Extracción de Método     | `ActividadService.kt`
 | Primitive Obsession   | Parameter Object         | `Tarea.kt`           
 | Duplicated Code       | Template Method          | `ConsolaUI.kt`       
 
-### 1.b Mejora con Patrón (Ejemplo: Extracción de Método)
+### 1.b
 **Código Antes**:  
 [`ActividadService.kt`]  
 ```kotlin
@@ -280,24 +280,35 @@ private fun parsearFecha(fecha: String): LocalDate? { ... }
 private fun filtrarEventos(fecha: LocalDate?): List<Evento> { ... }
 ```
 
-### 2.a Garantía de No Regresión
+### 2.a
 1. Pruebas Existente:
-
-Ejecuté ./gradlew test antes de refactorizar (baseline).
+Ejecuté ./gradlew test antes de refactorizar.
 
 2. Refactor con IDE:
-
-Usé Refactor > Extract Method (paso a paso).
+Usé Refactor > Extract Method.
 
 3. Verificación:
-
 Corrí las pruebas nuevamente tras cada cambio.
 
 Ejemplo:
-
+```
 bash
 ./gradlew test --tests "es.prog2425.taskmanager.service.ActividadServiceTest"
-4. Cobertura:
+```
 
+4. Cobertura:
 Aseguré que los tests cubrían el 100% de los métodos extraídos.
 
+## 3.a
+Para Extracción de Método:
+
+1. Seleccioné el bloque de código (15 líneas en ``filtrarPorFecha``).
+
+2. Click Derecho > Refactor > Extract > Method.
+
+3. Configuré el nuevo método.
+
+4. Resultado:
+IDE ajustó automáticamente todas las llamadas al método antiguo.
+
+El IDE garantiza que los cambios son seguros y consistentes en todo el proyecto.
