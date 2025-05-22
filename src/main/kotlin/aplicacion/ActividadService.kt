@@ -7,11 +7,29 @@ import es.prog2425.taskmanager.utilidades.Logger
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
+/**
+ * Servicio principal para gestionar operaciones relacionadas con actividades (tareas y eventos).
+ *
+ * Esta clase maneja la lógica de negocio para:
+ * - Creación/modificación de actividades
+ * - Filtrado y búsqueda
+ * - Asignación a usuarios
+ *
+ * @property repositorio Instancia de [IActividadRepository] para acceso a datos
+ * @property userRepository Instancia de [UserRepository] para gestión de usuarios
+ */
 class ActividadService(
     private val repositorio: IActividadRepository,
     private val userRepository: UserRepository
 ) {
-
+    /**
+     * Crea una nueva tarea con la descripción proporcionada.
+     *
+     * @param descripcion Texto descriptivo de la tarea (no vacío)
+     * @param etiquetas Lista opcional de etiquetas para clasificación
+     * @throws IllegalArgumentException Si la descripción está vacía
+     * @sample ActividadServiceTest.crearTarea_DescripcionValida_GuardaEnRepositorio
+     */
     fun crearTarea(descripcion: String, etiquetas: List<String> = emptyList()) {
         Logger.debug("Intentando crear tarea: $descripcion")
         try {

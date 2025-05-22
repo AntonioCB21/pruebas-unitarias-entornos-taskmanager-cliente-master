@@ -3,6 +3,14 @@ package es.prog2425.taskmanager.dominio
 import es.prog2425.taskmanager.utilidades.Logger
 import es.prog2425.taskmanager.utilidades.Utils
 
+/**
+ * Representa una tarea en el sistema con su estado y subtareas.
+ *
+ * @property id Identificador único generado automáticamente
+ * @property descripcion Detalle de la tarea
+ * @property estado Estado actual de la tarea ([Estado.ABIERTA] por defecto)
+ * @property subtareas Lista de subtareas asociadas (opcional)
+ */
 class Tarea private constructor(
     id: Long,
     fechaCreacion: String,
@@ -38,7 +46,12 @@ class Tarea private constructor(
         val etiquetasStr = if (etiquetas.isNotEmpty()) " 🏷️[${etiquetas.joinToString()}]" else ""
         return "Tarea #$id$detallePadre: $descripcion $estadoStr$asignadoStr$etiquetasStr$subtareasStr"
     }
-    
+    /**
+     * Verifica si la tarea puede cerrarse (todas las subtareas deben estar finalizadas).
+     *
+     * @return `true` si no tiene subtareas pendientes, `false` en caso contrario
+     * @see cambiarEstado
+     */
     fun puedeCerrarse(): Boolean {
         return subtareas.all { it.estado == Estado.FINALIZADA }
     }
