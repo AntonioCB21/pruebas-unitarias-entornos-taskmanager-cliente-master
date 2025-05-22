@@ -67,15 +67,15 @@ Los imports deben ordenarse alfabéticamente y agruparse (stdlib primero).
 Antes:
 ```
 // ❌ ANTES (desordenado)  
-import com.example.utils.*  
-import kotlinx.coroutines.*
+import es.prog2425.taskmanager.aplicacion.ActividadService.*  
+import kotlin.system.exitProcess.*
 ```
 
 Después:
 ```
 // ✅ DESPUÉS (ordenado)  
-import kotlinx.coroutines.*  
-import com.example.utils.Formatter
+import kotlin.system.exitProcess.*  
+import es.prog2425.taskmanager.aplicacion.ActividadService
 ```
 
 * Llaves Inconsistentes  
