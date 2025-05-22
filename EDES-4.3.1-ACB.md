@@ -46,17 +46,20 @@ Ktlint exige 4 espacios por nivel de indentación (estándar oficial de Kotlin).
 
 Antes:
 ```
-// ❌ ANTES (2 espacios)  
-fun main() {
-∙∙println("Hola") // Error: Expected 4, found 2  
+**Antes** (❌ Violación):
+```kotlin
+fun mostrarMenu() {
+∙∙println("1. Opción A") // 2 espacios
+∙∙∙∙println("2. Opción B") // 4 espacios (inconsistente)
 }
 ```
 
 Después:
 ```
 // ✅ DESPUÉS (4 espacios)  
-fun main() {
-∙∙∙∙println("Hola") // Corregido  
+fun mostrarMenu() {
+∙∙∙∙println("1. Opción A") // 4 espacios
+∙∙∙∙println("2. Opción B") // 4 espacios
 }
 ```
 
@@ -67,15 +70,17 @@ Los imports deben ordenarse alfabéticamente y agruparse (stdlib primero).
 Antes:
 ```
 // ❌ ANTES (desordenado)  
-import es.prog2425.taskmanager.aplicacion.ActividadService.*  
-import kotlin.system.exitProcess.*
+import com.example.util.*
+import kotlinx.coroutines.runBlocking
+import java.time.LocalDate
 ```
 
 Después:
 ```
 // ✅ DESPUÉS (ordenado)  
-import kotlin.system.exitProcess.*  
-import es.prog2425.taskmanager.aplicacion.ActividadService
+import java.time.LocalDate
+import kotlinx.coroutines.runBlocking
+import com.example.util.Formatter // Wildcard reemplazado
 ```
 
 * Llaves Inconsistentes  
@@ -85,16 +90,24 @@ Debe haber un espacio después de ) y antes de {.
 Antes:
 ```
 // ❌ ANTES  
-fun foo(){ // Error: Missing spacing before "{"  
-    // ...  
+class Tarea{
+    // ...
+}
+
+fun finalizar(){
+    // ...
 }
 ```
 
 Después:
 ```
 // ✅ DESPUÉS  
-fun foo() { // Corregido  
-    // ...  
+class Tarea { // Espacio antes de {
+    // ...
+}
+
+fun finalizar() { // Espacio antes de {
+    // ...
 }
 ```
 
@@ -105,14 +118,14 @@ Prohíbe imports genéricos (.*) para mantener explícito el origen de las clase
 Antes:
 ```
 // ❌ ANTES  
-import com.example.model.* // Error: Wildcard import
+import java.util.*
 ```
 
 Después:
 ```
 // ✅ DESPUÉS  
-import com.example.model.User  
-import com.example.model.Product
+import java.util.Date
+import java.util.ArrayList
 ```
 
 * Final Newline Missing  
@@ -122,17 +135,17 @@ Todos los archivos deben terminar con una línea vacía.
 Antes:
 ```
 // ❌ ANTES (sin línea final)  
-class Test {  
-    // ...  
-}⏎  // Falta \n al final
+class Evento {
+    // ...
+}⏎  // EOF sin salto de línea
 ```
 
 Después:
 ```
 // ✅ DESPUÉS  
-class Test {  
-    // ...  
-}  
+class Evento {
+    // ...
+}
 ⏎  // Línea vacía añadida
 ```
 
