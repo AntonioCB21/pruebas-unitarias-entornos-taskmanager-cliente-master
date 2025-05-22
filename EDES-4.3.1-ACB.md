@@ -137,7 +137,7 @@ class Test {
 ```
 
 ## 5. Opción de configuración
-🔧 1. Habilitar trailing-comma
+1. Habilitar trailing-comma
 - Objetivo: Permitir comas al final en listas/arrays para commits más limpios.
 
 Cambio en build.gradle.kts:
