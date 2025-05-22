@@ -10,7 +10,7 @@
 
 ### 1.1 Long Method (Método Largo)
 - **Archivo**: `ActividadService.kt`  
-- **Ubicación**: Método `filtrarPorFecha()` (35 líneas)  
+- **Ubicación**: Método `filtrarPorFecha()`
 - **Problema**:  
   - Lógica compleja de fechas en un solo método  
   - Dificulta mantenimiento y testing  
@@ -79,10 +79,10 @@
 
 ## 1. Extracción de Método (Long Method)
 **Archivo**: `ActividadService.kt`  
-**Problema**: Método `filtrarPorFecha()` con 35 líneas y lógica compleja.
+**Problema**: Método `filtrarPorFecha()`.
 
 **Cambios**:
-1. Seleccioné el bloque de validación de fechas (líneas 15-28)
+1. Seleccioné el bloque de validación de fechas
 2. **Refactor > Extract > Method** (IntelliJ)
 3. Nombre del nuevo método: `validarYParsearFecha()`
 
